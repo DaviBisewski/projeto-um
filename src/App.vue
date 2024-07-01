@@ -14,11 +14,14 @@ const pessoa = reactive({
   confsenha: '',
   estado: '',
   data: '',
-  rua: 'Rua',
-  numero: 'Número',
-  bairro: 'Bairro',
-  cidade: 'Cidade',
-  cep: '00000-000',
+  rua: '',
+  numero: '',
+  bairro: '',
+  cidade: '',
+  cep: '',
+  linguas: '',
+  hobbies: '',
+
 })
 
 function formatarPreco(preco) {
@@ -28,8 +31,8 @@ function formatarPreco(preco) {
 
 <template>
   <div class="container">
-    <h1>Formulário</h1>
     <div class="formulario">
+      <h1>Formulário</h1>
       <form @submit.prevent="mostrarResultado = !mostrarResultado">
         <div class="row">
           <label for="">Nome:</label>
@@ -55,19 +58,19 @@ function formatarPreco(preco) {
           <label for="">Endereço:</label>
         </div>
         <div class="row">
-          <input type="text" v-model="pessoa.rua">
+          <input type="text" v-model="pessoa.rua" placeholder="Rua">
         </div>
         <div class="row">
-          <input type="text" v-model="pessoa.numero">
+          <input type="text" v-model="pessoa.numero " placeholder="Número">
         </div>
         <div class="row">
-          <input type="text" v-model="pessoa.bairro">
+          <input type="text" v-model="pessoa.bairro" placeholder="Bairro">
         </div>
         <div class="row">
-          <input type="text" v-model="pessoa.cidade">
+          <input type="text" v-model="pessoa.cidade" placeholder="Cidade">
         </div>
         <div class="row">
-          <input type="text" v-model="pessoa.cep">
+          <input type="number" v-model="pessoa.cep" placeholder="Cep">
         </div>
         <div class="row">
           <label for="">Estados:</label>
@@ -104,27 +107,49 @@ function formatarPreco(preco) {
 
         <div class="row">
         <label for="">Linguagem de Programação</label>
-
+          <div class="bglh">
         <div class="checkbox">
-          <input type="checkbox" v-model="cmaismais" id="" />
+          <input type="checkbox" value="C++" id="" 
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          />
           <p>C++</p>
         </div>
         <div class="checkbox">
-          <input type="checkbox" v-model="python" id="" />
+          <input type="checkbox" value="Python" id="" />
           <p>Python</p>
         </div>
         <div class="checkbox">
-          <input type="checkbox" v-model="javascript" id="" />
+          <input type="checkbox" value="JavaScript" id="" />
           <p>JavaScript</p>
         </div>
         <div class="checkbox">
-          <input type="checkbox" v-model="java" id="" />
+          <input type="checkbox" value="Java" id="" />
           <p>Java</p>
         </div>
         </div>
+      </div>
         <div class="row">
         <label for="">Hobbies favoritos</label>
-
+        <div class="bglh">
         <div class="checkbox">
           <input type="checkbox" v-model="musica" id="" />
           <p>Musica</p>
@@ -142,6 +167,7 @@ function formatarPreco(preco) {
           <p>Cozinhar</p>
         </div>
       </div>
+    </div>
       <div class="row">
         <label for="">Biografia:</label>
         <input type="text" v-model="biografia" id="" placeholder="Biografia:" />
@@ -167,13 +193,20 @@ function formatarPreco(preco) {
     <p>Bairro: {{ pessoa.bairro }}</p>
     <p>CEP: {{ pessoa.cep * 1 }}</p>
     <p>Estado: {{ pessoa.estado }}</p>
-    <p>{{ mostrarResultado }}</p>
+    <p>Hobbies: {{ pessoa.hobbies }}</p>
+    <p>Linguagens: {{ pessoa.linguas }}</p>
   </div>
 
   </div>
 </template>
 
 <style scoped>
+*{
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
 .container {
   display: flex;
   justify-content: center;
@@ -220,6 +253,13 @@ function formatarPreco(preco) {
 }
 
 .checkbox{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100px;
+}
+
+.bglh{
   display: flex;
 }
 </style>
