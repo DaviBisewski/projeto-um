@@ -32,27 +32,24 @@ function formatarPreco(preco) {
 <template>
   <div class="container">
     <div class="formulario">
-      <h1>Formulário</h1>
       <form @submit.prevent="mostrarResultado = !mostrarResultado">
+        <div class="title">
+        <h1>Formulário</h1>
+      </div>
         <div class="row">
-          <label for="">Nome:</label>
-          <input type="text" v-model="pessoa.nome" required>
+           <input type="text" v-model="pessoa.nome" required placeholder="Nome:">
         </div>
         <div class="row">
-          <label for="">Email:</label>
-          <input type="email" v-model="pessoa.email">
+            <input type="email" v-model="pessoa.email" placeholder="Email:">
         </div>
         <div class="row">
-          <label for="">Senha:</label>
-          <input type="password" v-model="pessoa.senha">
+            <input type="password" v-model="pessoa.senha" placeholder="Senha:">
         </div>
         <div class="row">
-          <label for="">Confirmar Senha:</label>
-          <input type="password" v-model="pessoa.confsenha">
+          <input type="password" v-model="pessoa.confsenha" placeholder="Confirmar Senha:">
         </div>
         <div class="row">
-          <label for="">Data de Nascimento:</label>
-          <input type="date" v-model="pessoa.data">
+          <input type="date" v-model="pessoa.data" placeholder="Data de Nascimento:">
         </div>
         <div class="row">
           <label for="">Endereço:</label>
@@ -103,34 +100,13 @@ function formatarPreco(preco) {
             <option value="SE">SERGIPE</option>
             <option value="TO">TOCANTINS</option>
           </select>
-        </div>
+        </div>  
 
         <div class="row">
         <label for="">Linguagem de Programação</label>
           <div class="bglh">
         <div class="checkbox">
-          <input type="checkbox" value="C++" id="" 
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          />
+          <input type="checkbox" value="C++" id=""/>
           <p>C++</p>
         </div>
         <div class="checkbox">
@@ -169,7 +145,6 @@ function formatarPreco(preco) {
       </div>
     </div>
       <div class="row">
-        <label for="">Biografia:</label>
         <input type="text" v-model="biografia" id="" placeholder="Biografia:" />
     </div>
 
@@ -211,24 +186,37 @@ function formatarPreco(preco) {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   gap: 1.5rem;
   width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(to left, #1e2124, #282b30, #424549, #424549);
+
 }
 
 .formulario,
 .resultado {
-  width: 45%;
-  border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .formulario {
-  background-color: #a8f0a2;
+  background-color: #1e2124;
+  justify-content: center;
+  align-items: center;
 }
 
+h1{
+  color: #fff;
+}
 .resultado {
-  background-color: #eeafe6;
+  background-color: #7289da;
+  width: 718px;
+  justify-content: center;
+  align-items: start;
+  animation: spin 2s ease;
+  animation-iteration-count: 1;
+  gap: 10px;
 }
 
 .formulario .row {
@@ -237,6 +225,19 @@ function formatarPreco(preco) {
   justify-content: space-between;
   align-items: center;
   text-align: center;
+}
+
+.formulario .row input{
+  padding: 10px;
+  border-radius: 0;
+  border: 2px solid transparent;
+  width: 100%;
+}
+
+.formulario .row input:hover{
+  padding: 10px;
+  border-radius: 0;
+  border: 2px solid #7289da;
 }
 
 .mostrar {
@@ -249,7 +250,7 @@ function formatarPreco(preco) {
 .mostrar button {
   font-size: 17px;
   padding: 5px 10px;
-  border-radius: 10px;
+
 }
 
 .checkbox{
@@ -261,5 +262,38 @@ function formatarPreco(preco) {
 
 .bglh{
   display: flex;
+}
+
+label{
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+select{
+  padding: 10px;
+  color: #fff;
+}
+
+.title{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+p{
+  color: #fff;
+}
+
+@keyframes spin{
+  to{
+    transform: scale(1) translate(0px) rotate(0deg) translateY(0);
+  }
+  from{
+    transform: scale(250) translate(2000px) rotate(720deg) translateY(1100px);
+  }
+}
+
+.resultado p{
+  font-size: 16px;
 }
 </style>
